@@ -26,3 +26,13 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Controller\AdAccountController:
+        autowire: true
+        tags: ['controller.service_arguments']
+        public: true
+        bind:
+            $appId: '%env(FB_APP_ID)%'
+            $appSecret: '%env(APP_SECRET)%'
+            $adAccountId: '%env(FB_ACCOUNT_ID)%'
+            $accessToken: '%env(FB_ACCOUNT_TOKEN)%'
